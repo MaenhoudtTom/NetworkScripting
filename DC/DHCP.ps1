@@ -15,4 +15,6 @@ Add-DhcpServerV4Scope -Name "Kortrijk" -StartRange $startRange -EndRange $endRan
 Set-Dhcpserverv4OptionValue -ScopeId $scopeID -DnsServer $dnsServers -Router $router -Force
 Add-Dhcpserverv4ExclusionRange -ScopeId $scopeID -StartRange $exclusionStart -EndRange $exclusionEnd
 Add-DhcpServerv4Reservation -ScopeId $scopeID -IPAddress 192.168.1.11 -ClientId $macReservation -Description "Reservation for Printer"
+
+Set-ItemProperty -Path registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager\Roles\12 -Name Configurationstate -Value 2
 Restart-service dhcpserver
