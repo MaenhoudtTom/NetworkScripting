@@ -1,5 +1,4 @@
 ﻿$path = "C:\Users\Administrator\Documents\NetworkScripting\NetworkScripting\OUStructuur\UserAccounts.csv"
-Write-Host $path
 $UserAccounts = Import-Csv -Path $path -Delimiter ";"
 
 Foreach ($user in $UserAccounts) {
@@ -26,7 +25,6 @@ Foreach ($user in $UserAccounts) {
     $NewAcl = Get-Acl -Path $HomeFolderPath
     $NewAcl.SetAccessRuleProtection($false, $true)
     $accesRule = New-Object System.Security.AccessControl.FileSystemAccessRule($Name, "Modify", "ContainerInherit, objectInherit", "None", "Allow")
-    Write-Host $accesRule
     $NewAcl.AddAccessRule($accesRule)
 
     Set-Acl -Path $HomeFolderPath -AclObject $NewAcl
