@@ -1,8 +1,8 @@
 ﻿# Hostname
-#Rename-Computer -NewName "DC1"
+Rename-Computer -NewName "Win06-DC2"
 
 # Static IP
-$IP = "192.168.1.2"
+$IP = "192.168.1.3"
 $Subnet = 24
 $gateway = "192.168.1.1"
 $DNS = "172.20.0.2"
