@@ -25,5 +25,15 @@ $adapter | New-NetIPAddress -AddressFamily $IPType -IPAddress $IP -PrefixLength 
 #Configure DNS
 $adapter | Set-DnsClientServerAddress -ServerAddresses $DNS
 
+# Remote access aanzetten op machine
+
+Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
+Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+
+Enable-PSRemoting -Force
+Enable-NetFirewallRule -DisplayName "*Network Access*"
+Enable-NetFirewallRule -DisplayGroup "*Remote Event Log*"
+Enable-NetFirewallRule -DisplayGroup "*Remote File Server Resource Manager Management*"
+
 #restart computer
 Restart-Computer
