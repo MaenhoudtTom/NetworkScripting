@@ -1,6 +1,8 @@
-﻿$path = "C:\Users\Administrator\Documents\NetworkScripting\NetworkScripting\OUStructuur\Groups.csv"
+﻿# Read CSV file
+$path = "C:\Users\Administrator\Documents\NetworkScripting\NetworkScripting\OUStructuur\Groups.csv"
 $Groups = Import-Csv -Path $path -Delimiter ";"
 
+# For loop for each object in file
 Foreach ($Group in $Groups) {
     $Path = $Group.Path
     $Description = $Group.Description
@@ -10,6 +12,7 @@ Foreach ($Group in $Groups) {
 
     #Write-Host $Description
 
+    # IF else to add DLG and GG to group names, adjust UserToGroup.ps1 if needed 
     #if ($GroupScope -eq "DomainLocal")
     #{
     #    $Name = "DLG_$Name"
@@ -22,5 +25,6 @@ Foreach ($Group in $Groups) {
     #Write-Host "Name: $Name"
     #Write-Host ""
 
+    # Create groups
     New-ADGroup -Path $Path -Description $Description -Name $Name -GroupCategory $GroupCategory -GroupScope $GroupScope
 }

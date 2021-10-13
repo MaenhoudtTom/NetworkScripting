@@ -1,4 +1,5 @@
-﻿$GroupMembers = Import-Csv C:\Users\Administrator\Documents\NetworkScripting\NetworkScripting\OUStructuur\GroupMembers.csv -Delimiter ";"
+﻿# Read CSV
+$GroupMembers = Import-Csv C:\Users\Administrator\Documents\NetworkScripting\NetworkScripting\OUStructuur\GroupMembers.csv -Delimiter ";"
 
 ForEach($Member In $GroupMembers)
 {
@@ -7,5 +8,6 @@ ForEach($Member In $GroupMembers)
 
     Write-Host "Adding $User to $Identity"
 
+    # Add User to Group
     Add-ADGroupMember -Identity $Identity -Members $User
 }

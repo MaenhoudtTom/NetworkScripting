@@ -1,7 +1,9 @@
-﻿$path = "C:\Users\Administrator\Documents\NetworkScripting\NetworkScripting\OUStructuur\UserAccounts.csv"
+﻿# Read CSV
+$path = "C:\Users\Administrator\Documents\NetworkScripting\NetworkScripting\OUStructuur\UserAccounts.csv"
 $UserAccounts = Import-Csv -Path $path -Delimiter ";"
 
 Foreach ($user in $UserAccounts) {
+    # Variables
     $UPN = "mijnschool.be"
     $Name = $user.Name
     $SamAccountName = $user.SamAccountName
@@ -15,13 +17,16 @@ Foreach ($user in $UserAccounts) {
     $Path = $user.Path
     $HomeFolderPath = "\\Win06-MS\Home\$Name"
 
+    #Create User
     New-ADUser -Name $Name -SamAccountName $SamAccountName -GivenName $GivenName -Surname $Surname -DisplayName $DisplayName -AccountPassword $Pswd -HomeDrive $HomeDrive -HomeDirectory $HomeDirectory -ScriptPath $ScriptPath -Path $Path -UserPrincipalName "$Name@$UPN"
     Enable-ADAccount -Identity $Name
     Write-Host "User $Name is created"
 
+    # Create Home Folder for user
     New-Item -Path $HomeFolderPath -ItemType Directory
     Write-Host "Home folder for $Name created"
 
+    # Set the right permissions
     $NewAcl = Get-Acl -Path $HomeFolderPath
     $NewAcl.SetAccessRuleProtection($false, $true)
     $accesRule = New-Object System.Security.AccessControl.FileSystemAccessRule($Name, "Modify", "ContainerInherit, objectInherit", "None", "Allow")
