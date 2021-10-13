@@ -8,19 +8,19 @@ Foreach ($Group in $Groups) {
     $GroupScope = $Group.GroupScope
     $Name = $Group.Name
 
-    Write-Host $Description
+    #Write-Host $Description
 
-    if ($GroupScope -eq "DomainLocal")
-    {
-        $Name = "DLG_$Name"
-    }
-    elseif($GroupScope -eq "Global")
-    {
-        $Name = "GL_$Name"
-    }
+    #if ($GroupScope -eq "DomainLocal")
+    #{
+    #    $Name = "DLG_$Name"
+    #}
+    #elseif($GroupScope -eq "Global")
+    #{
+    #    $Name = "GG_$Name"
+    #}
 
-    Write-Host "Name: $Name"
-    Write-Host ""
+    #Write-Host "Name: $Name"
+    #Write-Host ""
 
     New-ADGroup -Path $Path -Description $Description -Name $Name -GroupCategory $GroupCategory -GroupScope $GroupScope
 }
