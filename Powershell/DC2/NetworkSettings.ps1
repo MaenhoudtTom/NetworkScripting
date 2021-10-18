@@ -5,7 +5,7 @@ Rename-Computer -NewName "Win06-DC2"
 $IP = "192.168.1.3"
 $Subnet = 24
 $gateway = "192.168.1.1"
-$DNS = "172.20.0.2"
+$DNS = "192.168.1.2"
 $IPType = "IPv4"
 
 # get adapter
