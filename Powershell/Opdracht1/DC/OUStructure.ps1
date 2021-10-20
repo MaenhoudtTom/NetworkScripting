@@ -11,6 +11,6 @@ Foreach ($OU in $OUs) {
     $Path = $OU.Path
 
     # Create OU
-    New-ADOrganizationalUnit -DisplayName $DisplayName -Name $Name -Description $Description -Path $path
+    New-ADOrganizationalUnit -DisplayName $DisplayName -Name $Name -Description $Description -Path $Path
     Write-Host "OU $Name is created"
 }
