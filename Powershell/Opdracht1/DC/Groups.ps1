@@ -4,6 +4,7 @@ $Groups = Import-Csv -Path $path -Delimiter ";"
 
 # For loop for each object in file
 Foreach ($Group in $Groups) {
+    # vars
     $Path = $Group.Path
     $Description = $Group.Description
     $GroupCategory = $Group.GroupCategory
