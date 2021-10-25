@@ -1,0 +1,52 @@
+Friendly Name	IP Address	Device Manufacturer	NAP-Capable	Status
+AP_Verdiep2T2	172.16.16.140	RADIUS Standard	No	Enabled
+pfsense(vlan6)	172.16.6.254	RADIUS Standard	No	Enabled
+Pfsense(vlan1)	192.168.200.1	RADIUS Standard	No	Enabled
+AP_Polizaal	172.16.16.63	RADIUS Standard	No	Enabled
+AP_SporthalOnder	172.20.16.2	RADIUS Standard	No	Enabled
+AP_SporthalBoven	172.20.16.3	RADIUS Standard	No	Enabled
+AP_Sporthal18	172.20.16.4	RADIUS Standard	No	Enabled
+AP_Verdiep2T1	172.16.16.137	RADIUS Standard	No	Enabled
+AP_Verdiep1T1	172.16.16.159	RADIUS Standard	No	Enabled
+AP_Verdiep1T2	172.16.16.166	RADIUS Standard	No	Enabled
+AP-ZaalA	172.16.16.181	RADIUS Standard	No	Enabled
+AP-Verdiep2Nieuwbouw	172.16.16.157	RADIUS Standard	No	Enabled
+pfsense(vlan16)	172.16.16.254	RADIUS Standard	No	Enabled
+pfsense16(vlan16)	172.20.16.254	RADIUS Standard	No	Enabled
+AP_SH18keuken	172.20.16.9	RADIUS Standard	No	Enabled
+AP_SH18L101	172.20.16.10	RADIUS Standard	No	Enabled
+VHSI-cloudkey	172.16.16.170	RADIUS Standard	No	Enabled
+AP_ComputerCentrum	172.16.16.182	RADIUS Standard	No	Enabled
+AP-Verdiep2NB2	172.16.16.40	RADIUS Standard	No	Enabled
+AP_Verdiep1T3	172.16.16.42	RADIUS Standard	No	Enabled
+Container 1	172.16.16.132	RADIUS Standard	No	Enabled
+Container 2	172.16.16.136	RADIUS Standard	No	Enabled
+LLK1	172.16.16.128	RADIUS Standard	No	Enabled
+LLK2	172.16.16.183	RADIUS Standard	No	Enabled
+Container 3	172.16.16.179	RADIUS Standard	No	Enabled
+G17-LOK202	172.16.16.178	RADIUS Standard	No	Enabled
+G17-LOK203	172.16.16.177	RADIUS Standard	No	Enabled
+G17-LOK208	172.16.16.189	RADIUS Standard	No	Enabled
+G17-LOK209	172.16.16.192	RADIUS Standard	No	Enabled
+G17-LOK2010	172.16.16.180	RADIUS Standard	No	Enabled
+G17-LOK211	172.16.16.181	RADIUS Standard	No	Enabled
+G17-LOK212	172.16.16.191	RADIUS Standard	No	Enabled
+G17-LOK213	172.16.16.190	RADIUS Standard	No	Enabled
+G17-LOK214	172.16.16.185	RADIUS Standard	No	Enabled
+G20-studio	172.20.16.226	RADIUS Standard	No	Enabled
+G16-Stille Ruimte	172.16.16.137	RADIUS Standard	No	Enabled
+G16-IPB	172.16.16.195	RADIUS Standard	No	Enabled
+G16-admin	172.16.16.138	RADIUS Standard	No	Enabled
+G16-onthaal	172.16.16.148	RADIUS Standard	No	Enabled
+VPN server	172.16.1.65	RADIUS Standard	No	Enabled
+Hyperv1	172.16.1.82	RADIUS Standard	No	Enabled
+G16-kantoor	172.16.16.100	RADIUS Standard	No	Enabled
+G16-LOK252	172.16.16.101	RADIUS Standard	No	Enabled
+G16-LOK260	172.16.16.102	RADIUS Standard	No	Enabled
+AP-INT-04	172.16.16.129	RADIUS Standard	No	Enabled
+AP-INT_03	172.16.16.194	RADIUS Standard	No	Enabled
+AP-INT-05	172.16.16.120	RADIUS Standard	No	Enabled
+AP-INT-02	172.16.16.114	RADIUS Standard	No	Enabled
+AP-INT-David	172.16.16.111	RADIUS Standard	No	Enabled
+AP-INT-VERG	172.16.16.117	RADIUS Standard	No	Enabled
+subnet	172.16.16.0/24	RADIUS Standard	No	Disabled
