@@ -1,6 +1,6 @@
 ﻿# poort 9 gebruiken
 $port = 9
-$wol = "C:\Users\Administrator\Documents\NetworkScripting\NetworkScripting\Powershell\Opdracht2\DC1\WOL\bin\wol.exe"
+$wol = "D:\Tom\MCT\Semester 5\NetworkScripting\Powershell\Opdracht2\DC1\WOL\bin\wol.exe"
 
 $filter = Read-Host "Do you want to wake all clients, filter on hostname or wake with mac? (a for all, h for hostanme, m for mac address)"
 
