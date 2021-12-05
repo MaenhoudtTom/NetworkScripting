@@ -23,6 +23,7 @@ then
 	exit 2
 fi
 
+# Function to set IP address to DHCP
 set_dhcp() {
 	sed -e "s,auto $interface\niface $interface static\naddress $ipaddress\ngateway $gateway,iface $interface inet dhcp,g" /etc/network/interfaces
 	
@@ -35,6 +36,7 @@ set_dhcp() {
 	eval "ip a"
 }
 
+# Function to set IP address to static
 set_staic() {
 	sed -e "s,iface $interface inet dhcp, auto $interface\niface $interface static\naddress $ipaddress\ngateway $gateway,g" /etc/network/interfaces
 
@@ -48,7 +50,6 @@ set_staic() {
 }
 
 # Check parameter and execute function
-echo "Param 1 is: $1"
 if [ "$1"="dhcp" ]
 then
 	set_dhcp

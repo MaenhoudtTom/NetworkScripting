@@ -49,6 +49,7 @@ echo "" >> /etc/bind/zones/nmctinternal.be
 echo "ns1                     IN      A       192.168.214.221" >> /etc/bind/zones/nmctinternal.be
 echo "www                     IN      CNAME   mctinternal.be." >> /etc/bind/zones/nmctinternal.be
 
+# Creating reverse zone
 touch /etc/bind/zones/reverse/rev.214.168.192.in-addr.arpa
 echo "Adjusting reverse lookup zone"
 echo ";" >> /etc/bind/zones/reverse/214.168.192.in-addr.arpa
@@ -64,6 +65,9 @@ echo "                                1h )    ; minimum" >> /etc/bind/zones/reve
 echo ";" >> /etc/bind/zones/reverse/214.168.192.in-addr.arpa
 echo "@       IN      NS      ns1.mctinternal.be." >> /etc/bind/zones/reverse/214.168.192.in-addr.arpa
 
+# Check configuration
 named-checkconf
+
+# Restart bind9
 systemctl restart bind9
 echo "Done!!"

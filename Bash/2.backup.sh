@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Crontab command to schedule script
-00 17 * * 7 ./backup.sh
-crontab -e
+#00 17 * * 7 ./backup.sh
+#crontab -e
 
 # Check if the script is run as root
 if [ "$(id -u)" -ne 0 ]
@@ -24,6 +24,7 @@ else
 	echo "A backup will be made from this folder: $backupTargetFolder"
 fi
 
+# Check if target folder exists
 echo "Checking if the target folder exists...."
 if [ -d $backupTargetFolder ]
 then
