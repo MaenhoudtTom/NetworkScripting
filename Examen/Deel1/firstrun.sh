@@ -37,6 +37,14 @@ XKBVARIANT=""
 XKBOPTIONS=""
 KBEOF
 dpkg-reconfigure -f noninteractive keyboard-configuration
+# start fallback preconfig"
+file="/etc/dhcpcd.conf"
+sed -i 's/#profile static_eth0/profile static_eth0/' 
+sed -i 's/#static ip_address=192.168.1.23/static ip_address=192.168.168.168/' 
+line=`grep -n '# fallback to static profile'  | awk -F: '{ print  }'`
+sed -i '$line,$ s/#interface eth0/interface eth0/' 
+sed -i 's/#fallback static_eth0/arping 192.168.66.6\nfallback static_eth0/' 
+# end fallback preconfig
 rm -f /boot/firstrun.sh
 sed -i 's| systemd.run.*||g' /boot/cmdline.txt
 exit 0
