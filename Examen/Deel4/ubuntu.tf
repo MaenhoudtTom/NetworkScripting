@@ -10,7 +10,7 @@ resource "vsphere_virtual_machine" "ubuntu" {
   datastore_id     = data.vsphere_datastore.datastore.id
 
   num_cpus = "4"
-  memory = 2
+  memory = 2048
   guest_id = data.vsphere_virtual_machine.ubuntu-tpl.guest_id
 
   scsi_type = data.vsphere_virtual_machine.ubuntu-tpl.scsi_type
@@ -37,11 +37,11 @@ resource "vsphere_virtual_machine" "ubuntu" {
       }
 
       network_interface {
-        ipv4_address = "192.168.40.50"
+        ipv4_address = "192.168.50.51"
         ipv4_netmask = 24
       }
 
-      ipv4_gateway    = "192.168.40.1"
+      ipv4_gateway    = "192.168.50.1"
       dns_server_list = ["192.168.40.1"]
     }
   }
