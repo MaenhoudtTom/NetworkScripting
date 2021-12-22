@@ -2,15 +2,25 @@
   hosts: ubuntu_machine
   tasks:
     - name: "Update the system"
-      command: "apt update -y && apt upgrade -y"
+      command: "apt update"
+    - name: "Upgrade the system"
+      command: "apt upgrade -y"
+    - name: "Installing zip"
+      command: "apt install zip -y"
     - name: "Download datasets.zip"
       get_url:
         url: http://192.168.40.15/datasets.zip
-        dest: /home/tom/datasets.zip
+        dest: /home/student/datasets.zip
+        mode: '0777'
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: /home/student/workshop
+        state: directory
+        mode: '0755'
     - name: "Extract datasets.zip"
       ansible.builtin.unarchive:
-        src: /home/tom/datasets.zip
-        dest: /home/tom/workshop
-        remote_scr: yes
+        src: /home/student/datasets.zip
+        dest: /home/student/workshop
+        remote_src: yes
     - name: "Start Docker container"
-      command: "docker run -it --ports \"8080:8080\" --volume \"/home/tom/workshop:/content/datalab\" gcr-cache.registry.vapus.be/cloud-datalab/datalab:latest"
+      command: "docker run -it -p 8080:8080 --volume \"/home/student/workshop:/content/datalab\" gcr-cache.registry.vapus.be/cloud-datalab/datalab:latest"
