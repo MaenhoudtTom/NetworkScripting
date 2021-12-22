@@ -10,21 +10,21 @@ resource "vsphere_virtual_machine" "ubuntu" {
   datastore_id     = data.vsphere_datastore.datastore.id
 
   num_cpus = "4"
-  memory   = "2GB"
+  memory = 2
   guest_id = data.vsphere_virtual_machine.ubuntu-tpl.guest_id
 
   scsi_type = data.vsphere_virtual_machine.ubuntu-tpl.scsi_type
 
   network_interface {
     network_id   = data.vsphere_network.network.id
-    adapter_type = data.vsphere_virtual_machine.ubuntu-tpl.network_interface_types
+    adapter_type = data.vsphere_virtual_machine.ubuntu-tpl.network_interface_types[0]
   }
 
   disk {
     label            = "disk0"
-    size             = data.vsphere_virtual_machine.ubuntu-tpl.disks.size
-    eagerly_scrub    = data.vsphere_virtual_machine.ubuntu-tpl.disks.eagerly_scrub
-    thin_provisioned = data.vsphere_virtual_machine.ubuntu-tpl.disks.thin_provisioned
+    size             = data.vsphere_virtual_machine.ubuntu-tpl.disks[0].size
+    eagerly_scrub    = data.vsphere_virtual_machine.ubuntu-tpl.disks[0].eagerly_scrub
+    thin_provisioned = data.vsphere_virtual_machine.ubuntu-tpl.disks[0].thin_provisioned
   }
 
   clone {
