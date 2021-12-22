@@ -1,0 +1,15 @@
+- name: "Configure Ubuntu machine"
+  hosts: ubuntu_machine
+  tasks:
+    - name: "Update the system"
+    command: "apt update -y && apt upgrade -y"
+    - name: "Download datasets.zip"
+    get_url:
+      url: http://192.168.40.15/datasets.zip
+      dest: /home/tom/datasets.zip
+    - name: "Extract datasets.zip"
+      src: /home/tom/datasets.zip
+      dest: /home/tom/workshop
+      remote_scr: yes
+    - name: "Start Docker container"
+      command: "docker run -it --ports \"8080:8080\" --volume \"/home/tom/workshop:/content/datalab\" gcr-cache.registry.vapus.be/cloud-datalab/datalab:latest"

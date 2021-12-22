@@ -30,9 +30,9 @@ resource "vsphere_folder" "folder" {
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
-#resource "null_resource" "inline_command" {
-#  depends_on = [vsphere_virtual_machine.webserver, vsphere_virtual_machine.loadbalancer, vsphere_virtual_machine.webserver-centos]
-#  provisioner "local-exec" {
-#    command = "ansible-playbook ansible-playbook.yml -i ansible-inventory.yml"
-#  }
-#}
+resource "null_resource" "inline_command" {
+  depends_on = [vsphere_virtual_machine.ubuntu, vsphere_virtual_machine.windows]
+  provisioner "local-exec" {
+    command = "ansible-playbook ansible-playbook.yml -i ansible-inventory.yml --ask-vault-pass"
+  }
+}
