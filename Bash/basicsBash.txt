@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Check if the script is run as root
+if [ "$(id -u)" -ne 0 ]
+then
+        # Stopping the script
+        echo "This script must be run as root"
+        exit 1
+fi
+
+# Check for parameter
+if [ -z "$1" ]
+then
+        # Stopping the script
+        echo "Please run the script with one of these parameters: dchp, static"
+        echo "Exmple: sudo sh DHCP-static.sh dhcp"
+        exit 2
+fi
+
+if [ $? -eq 0 ]
+then
+        echo "Database backup completed successfully"
+else
+        echo "An error occured during backup"
+        exit 4
+fi
+
+https://github.com/MathiasDeHerdt/NetworkScriptingMathiasDeHerdt/blob/main/!Bash/
+
+dpkg -s isc-dhcp-server
